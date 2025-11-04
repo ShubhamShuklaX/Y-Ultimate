@@ -1,3 +1,4 @@
+// src/App.jsx
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { Toaster } from "@/components/ui/sonner";
@@ -9,6 +10,12 @@ import TournamentList from "./pages/tournaments/TournamentList";
 import TeamList from "./pages/teams/TeamList";
 import CreateTeam from "./pages/teams/CreateTeam";
 import TeamDetail from "./pages/teams/TeamDetail";
+
+// 🆕 Coaching imports
+import CoachDashboard from "./pages/coaching/CoachDashboard";
+import Sessions from "./pages/coaching/Sessions";
+import Assessments from "./pages/coaching/Assessments";
+import Attendance from "./pages/coaching/Attendance";
 
 // Protected Route Component
 function ProtectedRoute({ children }) {
@@ -30,8 +37,11 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
+          {/* Auth Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+
+          {/* Tournament & Team Routes (Existing) */}
           <Route
             path="/dashboard"
             element={
@@ -72,8 +82,45 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          {/* 🆕 Coaching Routes */}
+          <Route
+            path="/coaching"
+            element={
+              <ProtectedRoute>
+                <CoachDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/coaching/sessions"
+            element={
+              <ProtectedRoute>
+                <Sessions />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/coaching/assessments"
+            element={
+              <ProtectedRoute>
+                <Assessments />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/coaching/sessions/:id/attendance"
+            element={
+              <ProtectedRoute>
+                <Attendance />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Default redirect */}
           <Route path="/" element={<Navigate to="/dashboard" />} />
         </Routes>
+
         <Toaster />
       </AuthProvider>
     </BrowserRouter>
