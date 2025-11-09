@@ -58,8 +58,8 @@ Ensure you have the following installed:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/y-ultimate-platform.git
-   cd y-ultimate-platform
+   git clone https://github.com/yourusername/Tournify.git
+   cd Tournify
    ```
 
 2. **Install dependencies**
