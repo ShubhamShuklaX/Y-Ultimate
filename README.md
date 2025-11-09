@@ -66,7 +66,7 @@ Ensure you have the following installed:
    ```bash
    npm install
    ```
-
+<!--
 3. **Set up Supabase**
    - Create a Supabase account at [supabase.com](https://supabase.com)
    - Create a new project
@@ -82,8 +82,14 @@ Ensure you have the following installed:
    VITE_SUPABASE_URL=your_supabase_project_url
    VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
-
-5. **Start the development server**
+-->
+4. **Configure environment variables**
+  Create a `.env.local` file in the project root:
+   ```env
+   VITE_MONGOOSE_URL=your_mongoose_project_url
+   ```
+5. 
+6. **Start the development server**
    ```bash
    npm run dev
    ```
